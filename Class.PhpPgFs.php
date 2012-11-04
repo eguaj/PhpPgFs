@@ -170,7 +170,7 @@ class PgFs
         if (count($res) <= 0) {
             return false;
         }
-        $ret = $res[0]['data'];
+        $ret = pg_unescape_bytea($res[0]['data']);
         $this->position += strlen($ret);
         return $ret;
     }
